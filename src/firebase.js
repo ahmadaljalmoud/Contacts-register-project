@@ -1,4 +1,3 @@
-// Your web app's Firebase configuration
 import * as firebase from "firebase"
 
 
@@ -11,6 +10,6 @@ const firebaseConfig = {
     storageBucket: "react-contact-3a23a.appspot.com",
     messagingSenderId: "267180670202",
     appId: "1:267180670202:web:ed628d509b38eb3ca69d43"
-  };
-  firebase.initializeApp(firebaseConfig);
-
+};
+firebase.initializeApp(firebaseConfig);
+export default firebase;
