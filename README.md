@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 Istanbul Bootcamp Final Project: The Board Project
 In general, this open-ended project will involve working on an app that has a concept of "boards" and "board items". It could be a to-do list, or it could be something else; you may decide the purpose/function of this application. We are excited to see what you think of. Some examples of things in similar categories are:
     • To-do list (you are not allowed to do this one) 
     • Brainstorm board 
     • Kanban board 
     • Notetaking apps 
-<b>Learning objectives</b>
+Learning objectives
     • Connecting to a backend with Firebase 
     • Modeling your data 
     • Using React 
@@ -160,4 +159,3 @@ Extra credit
     Add users and registration using Firebase. See Firebase Auth. A user should be able to login, logout, access their own board, etc.
     Allow users to upload at least one image associated with an item.
     Allow users to rearrange the board via drag and drop (and persist the order in the backend!). Take a look at the react-dnd library.
->>>>>>> b8b2c2a7e5bb7f5733257e4d939b018640471e7a
