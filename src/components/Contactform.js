@@ -82,12 +82,9 @@ const ContactForm = (props) => {
       </div>
       <div className="mb-3 d-flex align-self-center">
         <label className="m-3"> Specify the contact's type:</label>
-        {/* <div className="mb-3 d-flex justify-content-center"> */}
         <Form.Check inline name="type" value="Personal" checked={values.type==="Personal"} onChange={handleInputChange} label="Personal" type="radio" id="Personal"/>
         <Form.Check inline name="type" value="Company" checked={values.type==="Company"} onChange={handleInputChange} label="Company" type="radio" id="Company" />
       </div>
-      {/* </div> */}
-
  
 
       <div className="form-group input-group">
