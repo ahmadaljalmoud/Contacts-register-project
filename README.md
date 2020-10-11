@@ -1,68 +1,94 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Istanbul Bootcamp Final Project: The Board Project
 
-In the project directory, you can run:
+In general, this open-ended project will involve working on an app that has a concept of "boards" and "board items". It could be a to-do list, or it could be something else; you may decide the purpose/function of this application. We are excited to see what you think of. Some examples of things in similar categories are:
 
-### `npm start`
+    To-do list (you are not allowed to do this one)
+    Brainstorm board
+    Kanban board
+    Notetaking apps
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Learning objectives
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    Connecting to a backend with Firebase
+    Modeling your data
+    Using React
 
-### `npm test`
+Code Requirements
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Only use function components (they were not taught on learn.co but they are what are used normally in practice). They are very similar to normal classes
+    You will want to look into how hooks are used
 
-### `npm run build`
+Data Requirements
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the requirements below, the terms are quite general, since they depend on exactly what you planned out for your app.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    A user should be able to create a board/list. Conceptually, a board/list would contain many items that a user can add.
+    For each board, a user should be able to add board items/tasks.
+    Board items should have:
+        A due date
+        A title
+        A boolean flag for completd or not completed
+        An assignee (someone it is assigned to). It can be any random string that the user wants.
+        Anything else that you decide
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Functional requirements
 
-### `npm run eject`
+    Theme and framework: Use one of React-Bootstrap, Ant Design, Material Bootstrap, Material UI (not recommended). Install the package using npm or yarn.
+    Routing: Use react-router to navigate to different pages.
+    Sorting within a given board. A user should be able to sort by title and due date, both ascending and descending.
+    Completed tasks. Completed tasks should not be shown on the main boards. When a task is marked completed, you may decide how it will be shown, but it should be separated. For example, you could have a special board for completed tasks, or you could make a completely separate page that loads all the completed tasks.
+    Navbar: There should be a navbar that has at least: "home page" (board overview), "about", and (optionally, see previous point) "completed."
+    Editing an existing task: A user should be able to edit and save any properties of a task, such as title and due dates.
+    Deletion of board and board item: A user should be able to delete any board or board item.
+    Toggle display type: There should be a button that allows users to toggle between "list" and "board" views of all the boards. Hint: keep a state variable on the container that contains two possible values. Here is an example of what we mean by board and list. List-view only has to be read-only
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Checkpoints
+Week 1
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Two minute demo of:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    Creation and reading of a board in Firebase
+    Creation and reading of a board item in Firebase
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The user should be able to fill out forms to create a board and board item and have it show up in the UI, no matter how it looks. No styling is required (I encourage you to worry about styling later).
+Week 2
 
-## Learn More
+Two minute demo of:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    A working navbar with React routing
+    Editing an existing board item in Firebase.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Week 3
 
-### Code Splitting
+Completion of rest of the features.
+Appendix
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Below, you'll find additional resources not directly related to the requirements of the project.
+Planning
 
-### Analyzing the Bundle Size
+I highly recommend that you write out your "schema" before starting. A schema means a list of keys (fields) that are present on each type of object. What keys can a board have? What keys can a board item have? Any other objects that you need to keep track of?
+Examples
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+There are tons of examples of such apps, even just a click away from here. You may want to look into any of the following products or terms for inspiration.
 
-### Making a Progressive Web App
+    GitHub Boards
+    Kanban boards
+    Wunderlist
+    Trello
+    Asana
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+I'm intentionally not including any pictures as examples, I want you to use your imagination and look around for inspiration.
+Reminders
 
-### Advanced Configuration
+    Please read this documentation
+    Please read the React documentation for function components
+    Please read the Firebase documentation
+    Look at lots of example code when writing your app
+    Work together with your partner, no one should be asymmetrically writing all of the code.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Extra credit
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    Add users and registration using Firebase. See Firebase Auth. A user should be able to login, logout, access their own board, etc.
+    Allow users to upload at least one image associated with an item.
+    Allow users to rearrange the board via drag and drop (and persist the order in the backend!). Take a look at the react-dnd library.
