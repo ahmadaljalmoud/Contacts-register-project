@@ -1,7 +1,6 @@
-import { database } from "firebase";
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import firebase from "../firebase";
-
+import Form from 'react-bootstrap/Form';
 const ContactForm = (props) => {
   let [values, setValues] = useState({
     fullName: "",
@@ -14,7 +13,7 @@ const ContactForm = (props) => {
   let handleInputChange = (e) => {
     const value = e.target.value;
     setValues({ ...values, [e.target.name]: value });
-    console.log(setValues);
+    console.log(values);
     console.log(e.target.name);
   };
 
@@ -25,13 +24,16 @@ const ContactForm = (props) => {
       mobile: values.mobile,
       email: values.email,
       address: values.address,
+      type: values.type,
     });
-    setValues("");
   };
 
   let handleSubmit = (event) => {
     event.preventDefault();
     addData(values);
+    // event.reset();
+    setValues("");
+
   };
 
   return (
@@ -78,20 +80,16 @@ const ContactForm = (props) => {
           value={values.email}
         />
       </div>
-      <div className="form-group input-group">
-        <div className="input-group-prepend">
-          <div className="input-group-text">
-            <i className="fas fa-bars"></i>
-          </div>
-        </div>
-        <input
-          className="form-control"
-          placeholder="Type: Personal or Company"
-          name="type"
-          onChange={handleInputChange}
-          value={values.type}
-        />
+      <div className="mb-3 d-flex align-self-center">
+        <label className="m-3"> Specify the contact's type:</label>
+        {/* <div className="mb-3 d-flex justify-content-center"> */}
+        <Form.Check inline name="type" value="Personal" checked={values.type==="Personal"} onChange={handleInputChange} label="Personal" type="radio" id="Personal"/>
+        <Form.Check inline name="type" value="Company" checked={values.type==="Company"} onChange={handleInputChange} label="Company" type="radio" id="Company" />
       </div>
+      {/* </div> */}
+
+ 
+
       <div className="form-group input-group">
         <textarea
           className="form-control"

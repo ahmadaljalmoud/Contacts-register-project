@@ -1,46 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import firebase from "../firebase";
+const SingleContact = (props) => {
 
-const SingleContact = () => {
-  const [newCell, setNewCell] = useState;
 
-  return
-  <table className="table table-borderless table-stripped">
-    <thead className="thead-light">
-      <tr>
-        <th>Full Name</th>
-        <th>Mobile</th>
-        <th>Email</th>
-        <th>Type</th>
-      </tr>
-    </thead>
+  const editButton = () => {
+    const db = firebase.firestore();
+    db.collection("contacts")
+      .doc(props.id)
+      .set({ ...props});
+  };
+  const onDelete = () => {
+    const db = firebase.firestore();
+    db.collection("contacts").doc(props.id).delete();
+  };
+
+  // console.log(props.id);
+  return (
+    // <h1>I am here</h1>
+
     <tbody>
-      {companyInformation.map((doc) => (
-        <tr key={}>
-          <td>{doc.data.fullName}</td>
-          <td>{doc.data.mobile}</td>
-          <td>{doc.data.email}</td>
-          <td className="bg-light">
-            <a
-              className="btn text-primary"
-              onClick={() => {
-                setCurrentId(key);
-              }}
-            >
-              <i className="fas fa-pencil-alt"></i>
-            </a>
-            <a
-              className="btn text-danger"
-              onClick={() => {
-                onDelete(key);
-              }}
-            >
-              <i className="far fa-trash-alt"></i>
-            </a>
-          </td>
-        </tr>
-      ))}
+      <tr>
+        <td>{props.fullName}</td>
+        <td>{props.mobile}</td>
+        <td>{props.email}</td>
+        <td>{props.type}</td>
+        <td className="bg-light">
+          <i
+            className="btn text-primary"
+            onClick={() => {
+              editButton(props);
+            }}
+          >
+            <i className="fas fa-pencil-alt"></i>
+          </i>
+          <i
+            className="btn text-danger"
+            onClick={() => {
+              onDelete(props);
+            }}
+          >
+            <i className="far fa-trash-alt"></i>
+          </i>
+        </td>
+      </tr>
     </tbody>
-  </table>
+  );
 };
 
 export default SingleContact;

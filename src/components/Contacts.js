@@ -1,9 +1,8 @@
 import React from "react";
 import Contactform from "./Contactform";
+import SingleContact from "./SingleContact";
 
-const Contacts = ({companyInformation}) => {
-
-
+const Contacts = ({ companyInformation }) => {
   return (
     <>
       <div className="jumbotron jumbotron-fluid">
@@ -13,13 +12,23 @@ const Contacts = ({companyInformation}) => {
       </div>
       <div className="row">
         <div className="col-md-5">
-          <Contactform/>
+          <Contactform />
         </div>
         <div className="col-md-7">
-          <div> 
-              
-          </div>
-          {/* <div>{companyInformation.map(doc =>(doc.data.fullName doc.data.mobile))}</div> */}
+          <table className="table table-borderless table-stripped">
+            <thead className="thead-light">
+              <tr>
+                <th>Full Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Type</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            {companyInformation.map((doc) => (
+              <SingleContact {...doc} />
+            ))}
+          </table>
         </div>
       </div>
     </>
