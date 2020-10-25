@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import firebase from "../firebase";
 import Form from 'react-bootstrap/Form';
+
 const ContactForm = (props) => {
   let [values, setValues] = useState({
     fullName: "",
@@ -31,17 +32,17 @@ const ContactForm = (props) => {
   let handleSubmit = (event) => {
     event.preventDefault();
     addData(values);
-    // event.reset();
+    document.getElementById("form").reset();
     setValues("");
 
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
+    <form autoComplete="off" onSubmit={handleSubmit} id="form">
       <div className="form-group input-group">
         <div className="input-group-prepend">
           <div className="input-group-text">
-            <i className="fas fa-user"></i>
+            <i className="fas fa-user "></i>
           </div>
         </div>
         <input
@@ -80,7 +81,7 @@ const ContactForm = (props) => {
           value={values.email}
         />
       </div>
-      <div className="mb-3 d-flex align-self-center">
+      <div className="mb-3 d-flex align-self-center border ">
         <label className="m-3"> Specify the contact's type:</label>
         <Form.Check inline name="type" value="Personal" checked={values.type==="Personal"} onChange={handleInputChange} label="Personal" type="radio" id="Personal"/>
         <Form.Check inline name="type" value="Company" checked={values.type==="Company"} onChange={handleInputChange} label="Company" type="radio" id="Company" />
@@ -88,7 +89,8 @@ const ContactForm = (props) => {
  
 
       <div className="form-group input-group">
-        <textarea
+        {/* change the hieght */}
+        <input
           className="form-control"
           placeholder="Address"
           name="address"

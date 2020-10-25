@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import firebase from "../firebase";
+import EditContactForm from "./EditContactForm"
 const SingleContact = (props) => {
-
+  const [show, setShow] = useState(false);
 
   const editButton = () => {
-    const db = firebase.firestore();
-    db.collection("contacts")
-      .doc(props.id)
-      .set({ ...props});
-  };
+    setShow(true);
+  }
+  const HideForm=()=>{
+    setShow(false);
+
+  }
   const onDelete = () => {
     const db = firebase.firestore();
     db.collection("contacts").doc(props.id).delete();
@@ -25,6 +27,7 @@ const SingleContact = (props) => {
         <td>{props.email}</td>
         <td>{props.type}</td>
         <td className="bg-light">
+        {show && <EditContactForm {...props} HideForm={HideForm}/>}
           <i
             className="btn text-primary"
             onClick={() => {

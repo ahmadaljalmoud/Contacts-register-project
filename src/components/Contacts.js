@@ -7,7 +7,7 @@ const Contacts = ({ companyInformation }) => {
     <>
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
-          <h1 className="display-4 text-center"> Contacts Register</h1>
+          <h1 className="display-4 text-center text-success"> Contacts Register</h1>
         </div>
       </div>
       <div className="row">
@@ -15,7 +15,7 @@ const Contacts = ({ companyInformation }) => {
           <Contactform />
         </div>
         <div className="col-md-7">
-          <table className="table table-borderless table-stripped">
+          <table className="table table-stripped">
             <thead className="thead-light">
               <tr>
                 <th>Full Name</th>
